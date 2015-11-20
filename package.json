@@ -1,5 +1,5 @@
 {
-  "name": "taobao-open",
+  "name": "taobao-openapi",
   "version": "0.1.0",
   "description": "package for taobao open api",
   "main": "index.js",
