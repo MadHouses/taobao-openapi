@@ -1,0 +1,23 @@
+{
+  "name": "taobao-open",
+  "version": "1.0.0",
+  "description": "package for taobao open api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "taobao",
+    "open",
+    "api"
+  ],
+  "author": "keller35",
+  "dependencies": {
+    "MD5": "1.2.1",
+    "moment": "2.10.6",
+    "querystring": "^0.2.0",
+    "request": "2.65.0",
+    "underscore": "^1.8.3"
+  },
+  "license": "MIT"
+}
