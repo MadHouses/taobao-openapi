@@ -17,7 +17,9 @@ var cfg = {
     httpRealHost: 'http://gw.api.taobao.com',
     httpSandHost: 'http://gw.api.tbsandbox.com',
     httpsRealHost: 'https://eco.taobao.com',
-    httpsSandHost: 'https://gw.api.tbsandbox.com'
+    httpsSandHost: 'https://gw.api.tbsandbox.com',
+    format: "json",
+    v: "2.0"
 };
 
 /**
@@ -54,7 +56,7 @@ Taobao.prototype.configure = function (config) {
 
 Taobao.prototype.get = function () {
 
-    //variable length arguments
+    // variable length arguments
     var method = "";
     var config = {};
     var args = {};
@@ -71,7 +73,11 @@ Taobao.prototype.get = function () {
     }
 
     _.extend(args, {method: method});
-    var format_args = formatArgs(args, this.config);
+
+    // store private configuration in private_cfg
+    var private_cfg = {};
+    _.extend(private_cfg, this.config, config);
+    var format_args = formatArgs(args, private_cfg);
 
     var host = this.config.debug ?
         (this.config.https ? this.config.httpsSandHost : this.config.httpSandHost) :
@@ -118,18 +124,18 @@ Taobao.prototype.post = function () {
     }
 
     _.extend(args, {method: method});
-    var format_args = formatArgs(args, this.config);
+
+    // store private configuration in private_cfg
+    var private_cfg = {};
+    _.extend(private_cfg, this.config, config);
+    formatArgs(args, private_cfg);
 
     var host = this.config.debug ?
         (this.config.https ? this.config.httpsSandHost : this.config.httpSandHost) :
         (this.config.https ? this.config.httpsRealHost : this.config.httpRealHost);
 
-    var uri = encodeURI(host + this.config.path + "?" + format_args);
-    var option = {
-        method: "GET",
-        uri: uri
-    };
-    request(option, function (error, response, body) {
+    var uri = encodeURI(host + this.config.path);
+    request.post(uri, {form: args}, function (error, response, body) {
         if (error) {
             return callback(error);
         }
@@ -143,7 +149,7 @@ Taobao.prototype.post = function () {
  * format Args and sign it
  * return the query string
  *
- * @param {List} args
+ * @param {Object} args
  * @param {Object} config
  * @return {String} formated args
  */
@@ -151,8 +157,8 @@ Taobao.prototype.post = function () {
 function formatArgs(args, config) {
 
     args.timestamp = moment().format("YYYY-MM-DD HH:mm:ss");
-    args.format = "json";
-    args.v = "2.0";
+    args.format = config.format;
+    args.v = config.v;
     args.sign_method = "md5";
     args.app_key = config.app_key;
 
@@ -162,9 +168,9 @@ function formatArgs(args, config) {
 
 /**
  * private function
- * sign the Args with md5
+ * sign the Args encrypted by md5
  *
- * @param {List} args
+ * @param {Object} args
  * @param {Object} config
  * @return {String} signed args
  */
