@@ -1,7 +1,7 @@
 {
   "name": "taobao-openapi",
-  "version": "0.1.0",
-  "description": "package for taobao open api",
+  "version": "0.2.1",
+  "description": "api client for taobao open platform",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,8 @@
   "keywords": [
     "taobao",
     "open",
-    "api"
+    "api",
+    "baichuan"
   ],
   "author": "keller35",
   "repository": {
