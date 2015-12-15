@@ -51,12 +51,15 @@
         session: "yourSession"
     });
     
-###目前有效参数：
+### 目前有效参数：
 
-| key           | value         | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| attribute    | description   | default  |
+| -------------|:-------------:| -----:   |
+| debug        | 是否开启沙箱    | false    |
+| https        | https         | false    |
 
-正在开发中...
+目前只支持json响应格式，不支持xml格式；
+
+目前只支持MD5加密方法；
+
+欢迎fork！
