@@ -1,6 +1,6 @@
 {
   "name": "taobao-openapi",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "api client for taobao open platform",
   "main": "index.js",
   "scripts": {
@@ -12,10 +12,10 @@
     "api",
     "baichuan"
   ],
-  "author": "keller35",
+  "author": "MadHouses",
   "repository": {
     "type": "git",
-    "url": "https://github.com/keller35/taobao-openapi.git"
+    "url": "https://github.com/MadHouses/taobao-openapi"
   },
   "dependencies": {
     "MD5": "1.2.1",
