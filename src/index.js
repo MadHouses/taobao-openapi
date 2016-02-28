@@ -161,6 +161,9 @@ function formatArgs(args, config) {
     args.v = config.v;
     args.sign_method = "md5";
     args.app_key = config.app_key;
+    if(config.session){
+        args.session = config.session;
+    }
 
     args.sign = signArgs(args, config);
     return qs.stringify(args);
