@@ -63,12 +63,12 @@ Taobao.prototype.get = function () {
     var callback;
     if (arguments.length == 3) {
         method = arguments[0];
-        args = arguments[1];
+        args = _.extend(args, arguments[1]);
         callback = arguments[2];
     } else if (arguments.length == 4) {
         method = arguments[0];
         config = arguments[1] || {};
-        args = arguments[2];
+        args = _.extend(args, arguments[2]);
         callback = arguments[3];
     }
 
@@ -114,12 +114,12 @@ Taobao.prototype.post = function () {
     var callback;
     if (arguments.length == 3) {
         method = arguments[0];
-        args = arguments[1];
+        args = _.extend(args, arguments[1]);
         callback = arguments[2];
     } else if (arguments.length == 4) {
         method = arguments[0];
         config = arguments[1] || {};
-        args = arguments[2];
+        args = _.extend(args, arguments[2]);
         callback = arguments[3];
     }
 
@@ -161,6 +161,7 @@ function formatArgs(args, config) {
     args.v = config.v;
     args.sign_method = "md5";
     args.app_key = config.app_key;
+
     if(config.session){
         args.session = config.session;
     }
