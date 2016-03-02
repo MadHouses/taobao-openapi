@@ -92,6 +92,13 @@ Taobao.prototype.get = function () {
         if (error) {
             return callback(error);
         }
+        try {
+            body = JSON.parse(body);
+        }catch (err) {
+            if(err) {
+                return callback(err);
+            }
+        }
         callback(null, body);
     });
 };
@@ -138,6 +145,13 @@ Taobao.prototype.post = function () {
     request.post(uri, {form: args}, function (error, response, body) {
         if (error) {
             return callback(error);
+        }
+        try {
+            body = JSON.parse(body);
+        }catch (err) {
+            if(err) {
+                return callback(err);
+            }
         }
         callback(null, body);
     });
