@@ -18,7 +18,7 @@
     "url": "https://github.com/MadHouses/taobao-openapi"
   },
   "dependencies": {
-    "MD5": "1.2.1",
+    "md5": "2.0.0",
     "moment": "2.10.6",
     "querystring": "^0.2.0",
     "request": "2.65.0",
