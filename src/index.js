@@ -202,3 +202,5 @@ function signArgs(args, config) {
 
     return md5(config.app_secret + argsArr.sort().join('') + config.app_secret).toUpperCase();
 }
+
+require('./extend');

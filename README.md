@@ -52,6 +52,19 @@ post请求：
         args：接口参数
         callback：回调函数，包含错误参数err和响应body
     
+# Suger
+
+获取所有订单:
+
+    args = {
+        start_created: 'yourStartTime',
+        end_created: 'yourEndTime'
+    };
+    top.getAllTrades(args, callback)
+        args：接口参数
+        
+具体参考 [文档](http://open.taobao.com/doc2/apiDetail.htm?spm=a219a.7629065.0.0.l9qqfv&apiId=46)
+
 # Features
 
 1、configure
