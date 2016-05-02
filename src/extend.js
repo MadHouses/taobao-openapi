@@ -76,7 +76,7 @@ Taobao.prototype.getAllTrades = function(params, cb) {
         },
         function(err) {
             if (err) return cb(err);
-            cb(arr);
+            cb(null, arr);
         }
     );
 }

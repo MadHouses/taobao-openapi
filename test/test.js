@@ -15,7 +15,7 @@ top.get("taobao.shop.get", {
     fields: "sid,cid,nick,title,desc,shop_score"
 }, function(err, body) {
     if (err) {
-        return console.log(err);
+        return console.error(err);
     }
     console.log(body);
 });
@@ -25,7 +25,7 @@ top.post("taobao.shop.get", {
     fields: "sid,cid,nick,title,desc,shop_score"
 }, function(err, body) {
     if (err) {
-        return console.log(err);
+        return console.error(err);
     }
     console.log(body);
 });
@@ -34,6 +34,9 @@ var params = {
     start_created: moment().subtract(1, 'hours').format('YYYY-MM-DD HH:mm:ss'),
     end_created: moment().format('YYYY-MM-DD HH:mm:ss')
 };
-top.getAllTrades(params, function(results) {
+top.getAllTrades(params, function(err, results) {
+    if (err) {
+        return console.error(err);
+    }
     console.log(results);
 });
