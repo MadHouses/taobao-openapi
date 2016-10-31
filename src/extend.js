@@ -65,7 +65,9 @@ Taobao.prototype.getAllTrades = function(params, cb) {
         function(callback) {
             self.get('taobao.trades.sold.get', newParams, function(err, body) {
                 if (err) return callback(err);
-                arr = arr.concat(body.trades_sold_get_response.trades.trade);
+                if (body && body.trades_sold_get_response && body.trades_sold_get_response.trades && body.trades_sold_get_response.trades.trade) {
+                    arr = arr.concat(body.trades_sold_get_response.trades.trade);
+                }
                 has_next = body.trades_sold_get_response.has_next;
                 newParams.page_no++;
                 callback(null, body);
@@ -76,7 +78,7 @@ Taobao.prototype.getAllTrades = function(params, cb) {
         },
         function(err) {
             if (err) return cb(err);
-            cb(arr);
+            cb(null, arr);
         }
     );
 }

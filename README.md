@@ -52,7 +52,7 @@ post请求：
         args：接口参数
         callback：回调函数，包含错误参数err和响应body
     
-# Suger
+# Sugar
 
 获取所有订单:
 
