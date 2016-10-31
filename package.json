@@ -1,6 +1,6 @@
 {
   "name": "taobao-openapi",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "api client for taobao open platform",
   "main": "index.js",
   "scripts": {
